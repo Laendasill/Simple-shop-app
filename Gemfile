@@ -19,15 +19,19 @@ gem 'decent_exposure'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 group :development, :test do
-gem 'factory_girl_rails'
-gem 'rspec-rails'
-gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
+
+ gem 'jquery-datatables-rails'
+ gem 'jquery-ui-rails' 
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '< 3.0.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
