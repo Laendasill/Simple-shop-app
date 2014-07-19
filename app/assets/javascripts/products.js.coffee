@@ -1,7 +1,6 @@
 jQuery ->
 
-  $("#products").dataTable.makeEditable
-    sDeleteURL: 
+  $("#products").dataTable()
 
  $('#products tbody').on( 'click', 'tr',` function() {
 
