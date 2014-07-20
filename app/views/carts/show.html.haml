@@ -7,7 +7,7 @@
     %th Amount
     %th Price
     %th Action
-  -@cart.cart_items.each do |item|
+  -Array(@cart.cart_items).each_by_index do |item|
     %tr
       %td #{item.product.title}
       %td #{item.amount}  
