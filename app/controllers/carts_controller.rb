@@ -1,6 +1,16 @@
 class CartsController < ApplicationController
   def show
-    @cart = current_cart
+    begin
+      @cart  = Cart.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to acces invalid cart #{params[:id]}"
+      redirect_to root_path, notice: "Invalid cart"
+    else
+      respond_to do |format|
+        format.html
+
+      end
+    end
 
   end
   
