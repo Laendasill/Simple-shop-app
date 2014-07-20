@@ -14,4 +14,11 @@ class CartItemsController < ApplicationController
      end
     end
   end  
+  
+  def destroy
+    @cart = current_cart
+    @cart_item = @cart.cart_items.find_by(id: params[:id])
+    @cart_item.destroy
+    redirect_to @cart, notice: "item destroyed"
+  end
 end
