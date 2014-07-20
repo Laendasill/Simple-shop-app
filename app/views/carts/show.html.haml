@@ -1,0 +1,17 @@
+- if notice
+  %p= notice
+%h2 Your shopping cart
+%table.table
+  %thead
+    %th Product
+    %th Amount
+    %th Price
+  -@cart.cart_items.each do |item|
+    %tr
+      %td #{item.product.title}
+      %td #{item.amount}  
+      %td=number_to_currency(item.total_price)
+  %tr
+    %td{ "colspan" => 2} Total
+    %td.total-cell= number_to_currency(@cart.total_price)
+=button_to "Empty cart", @cart, method: :delete, class: "btn btn-danger", confirm: "are you sure?"
