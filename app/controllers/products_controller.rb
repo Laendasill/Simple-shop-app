@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    @cart = current_cart
     @categories = Category.all
     if params[:category_id].present?
       @products = Product.where(category_id: params[:category_id])
