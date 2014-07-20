@@ -2,6 +2,8 @@ Prapp::Application.routes.draw do
   resources :categories
   resources :products
   root 'products#index'
+  match '/productsupdate' => 'products#update', via: [:post]
+  match '/products/categories/:category_id' => 'products#index', as: 'product_category', via: [:get]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

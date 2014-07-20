@@ -14,18 +14,10 @@
   %strong= model_class.human_attribute_name(:price) + ':'
   %br
   = @product.price
-%p
-  %strong Current category
+%p{ "id" => "addit"}
+  %strong Current category:
   %br
-  .dropdown
-    %button.btn.btn-default.dropdown-toggle{ "type" => "button", "id" => "dropdownMenu1", "data-toggle" => "dropdown"}
-     Catrgories
-    %ul.dropdown-menu{ "role" => "menu", "aria-labelledby" => "dropdownMenu1" }
-      -@categories.each do |c|
-        %li{ "role" => "presentation" }
-          %a{ "role" => "menuitem", "tabindex" => "-1", "href" => "#"}
-            c.name
-
+  = @categories.find(@product.category_id).name if @product.category_id 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), products_path, :class => 'btn'
   = link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(@product), :class => 'btn'

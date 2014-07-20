@@ -4,9 +4,13 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @categories = Category.all
+    if params[:category_id].present?
+      @products = Product.find_by(category_id: params[:category_id])
+    else
+      @products = Product.all
+    end
   end
-
   # GET /products/1
   # GET /products/1.json
   def show
@@ -16,10 +20,12 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @categories = Category.all
   end
 
   # GET /products/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /products
@@ -61,7 +67,12 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def set_category
 
+    respond_to do |format|
+      format.js { render action: 'edit' }
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -71,5 +82,9 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:title, :description, :price, :category_id)
+    end
+    
+    def category_id_param
+      params.require(:products).permit(:category_id)
     end
 end

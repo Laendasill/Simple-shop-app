@@ -11,6 +11,21 @@
     = f.label :price, :class => 'control-label'
     .controls
       = f.text_field :price, :class => 'text_field'
+  .control-group
+    = f.label :category, :class => 'control-label'
+    .controls 
+      = f.hidden_field :category_id, :id => 'set_category', :value => ''
+      .dropdown
+        %button.btn.btn-default.dropdown-toggle{ "type" => "button", "id" => "dropdownMenu1", "data-toggle" => "dropdown"}
+          Catrgories
+        %ul.dropdown-menu{ "role" => "menu", "aria-labelledby" => "dropdownMenu1", "id" => "CatSet" }
+          -@categories.each do |c|
+            %li{ "role" => "presentation" }
+              %a{ "role" => "menuitem", "tabindex" => "-1", "href" => "#", "id" => "Category", "action" => "set_category", "value" => "#{c.id}"}
+                = c.name
+          %li{ "role" => "presentation"}
+            %a{ "role" => "menuitem", "tabindex" => "-1", "href" => new_category_path }
+              New Category
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), products_path, :class => 'btn'

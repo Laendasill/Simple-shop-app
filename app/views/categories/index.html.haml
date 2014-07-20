@@ -14,7 +14,7 @@
       %tr
         %td= link_to category.id, category_path(category)
         %td= category.name
-        %td= category.product_id.count unless category.product_id == nil
+        %td= category.products.count 
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_category_path(category), :class => 'btn btn-mini'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), category_path(category), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
