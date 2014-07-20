@@ -23,7 +23,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
-
+gem 'rails_12factor', group: :production
  gem 'jquery-datatables-rails'
  gem 'jquery-ui-rails' 
 
