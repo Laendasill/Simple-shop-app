@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   def index
     @categories = Category.all
     if params[:category_id].present?
-      @products = Product.find_by(category_id: params[:category_id])
+      @products = Product.where(category_id: params[:category_id])
     else
       @products = Product.all
     end
