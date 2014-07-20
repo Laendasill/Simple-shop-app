@@ -17,7 +17,7 @@
       = f.hidden_field :category_id, :id => 'set_category', :value => ''
       .dropdown
         %button.btn.btn-default.dropdown-toggle{ "type" => "button", "id" => "dropdownMenu1", "data-toggle" => "dropdown"}
-          Catrgories
+          Categories
         %ul.dropdown-menu{ "role" => "menu", "aria-labelledby" => "dropdownMenu1", "id" => "CatSet" }
           -@categories.each do |c|
             %li{ "role" => "presentation" }

@@ -12,7 +12,9 @@
       %td #{item.product.title}
       %td #{item.amount}  
       %td=number_to_currency(item.total_price)
-      %td=link_to "delete", cart_item_path(item), :method => :delete, :confirm => "are you sure?", class: "btn btn-mini btn-danger"
+      %td
+        =link_to "delete", cart_item_path(item), :method => :delete, :confirm => "are you sure?", class: "btn btn-mini btn-danger"
+        
   %tr
     %td.total-line{ "colspan" => 2} Total
     %td.total-cell{ "colspan" => 2}= number_to_currency(@cart.total_price)

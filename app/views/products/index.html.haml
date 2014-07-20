@@ -25,7 +25,7 @@
 = link_to t('.new', :default => t("helpers.links.new")), new_product_path, :class => 'btn btn-primary'
 .dropdown
   %button.btn.btn-default.dropdown-toggle{ "type" => "button", "id" => "dropdownMenu1", "data-toggle" => "dropdown"}
-    Catrgories
+    Categories
   %ul.dropdown-menu{ "role" => "menu", "aria-labelledby" => "dropdownMenu1" }
     -@categories.each do |c|
       %li{ "role" => "presentation" }
