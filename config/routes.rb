@@ -1,6 +1,8 @@
 Prapp::Application.routes.draw do
   resources :categories
   resources :products
+  resources :carts, only: [:show, :destroy]
+  resources :cart_items, only: [:create, :update, :destroy]
   root 'products#index'
   match '/productsupdate' => 'products#update', via: [:post]
   match '/products/categories/:category_id' => 'products#index', as: 'product_category', via: [:get]

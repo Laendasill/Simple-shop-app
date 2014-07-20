@@ -13,8 +13,8 @@ jQuery ->
 
  $('#CatSet li a').click ->
    tmp = $(this).attr("value") 
-   alert(tmp)
    $('#set_category').attr("value",tmp)
+   $('#dropdownMenu1').text($(@).text())
 # $.ajax({
 #   type: "GET",
 #    url: edit_product,

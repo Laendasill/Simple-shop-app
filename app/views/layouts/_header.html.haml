@@ -1,5 +1,5 @@
 = nav_bar :fixed => :top, :brand =>  "App" do
   = menu_group do
     =menu_item "Products", products_path
-    =menu_item "test", "#"
+    =menu_item "your cart", cart_path(session[:cart_id]) if session[:cart_id]
     
